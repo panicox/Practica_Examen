@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class nave : MonoBehaviour { //solo se puede dar impuslo a objetos con rigidbody
 	public float fuerza = 10f;
-	public float rotation = 0.5f;
+	public float rotacion = 0.5f;
 	public ParticleSystem propulsor;
 	Rigidbody2D rb;
 	// Use this for initialization
@@ -18,7 +18,15 @@ public class nave : MonoBehaviour { //solo se puede dar impuslo a objetos con ri
 			rb.AddForce (transform.up * fuerza);
 			propulsor.Play ();
 		}
-		if (Input.GetKey (KeyCode.LeftArrow)){
+		if (Input.GetKey (KeyCode.LeftArrow)) {
+			rb.AddTorque (rotacion);
+		}
+		if (Input.GetKey (KeyCode.RightArrow)) {
+			rb.AddTorque (-rotacion);
+		}
 
+		if (Input.GetKeyUp (KeyCode.Space)) {
+			propulsor.Stop ();
+		}
 	}
 }
