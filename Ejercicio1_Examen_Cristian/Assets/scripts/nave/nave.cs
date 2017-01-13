@@ -19,7 +19,7 @@ public class nave : MonoBehaviour { //solo se puede dar impuslo a objetos con ri
 			propulsor.Play ();
 		}
 		if (Input.GetKey (KeyCode.LeftArrow)) {
-			rb.AddTorque (rotacion);
+			rb.AddTorque (rotacion); //torque le da la capacidad de girar al objeto
 		}
 		if (Input.GetKey (KeyCode.RightArrow)) {
 			rb.AddTorque (-rotacion);
